@@ -27,10 +27,10 @@ const SignupSchema = Yup.object().shape({
 });
 
 export const ContactForm = () => {
-  const { contacts } = useSelector(getContacts);
+  const { items } = useSelector(getContacts);
   const dispatch = useDispatch();
   const onAdd = data => {
-    const isExist = contacts.some(
+    const isExist = items.some(
       ({ contactName }) => contactName.toLowerCase() === data.name.toLowerCase()
     );
     isExist

@@ -6,9 +6,9 @@ import { MdDeleteForever } from 'react-icons/md';
 
 export const ContactList = () => {
   const filter = useSelector(getFilter);
-  const { contacts } = useSelector(getContacts);
+  const { items } = useSelector(getContacts);
 
-  const contArr = contacts.filter(({ contactName }) =>
+  const contArr = items.filter(({ contactName }) =>
     contactName.toLowerCase().includes(filter)
   );
 

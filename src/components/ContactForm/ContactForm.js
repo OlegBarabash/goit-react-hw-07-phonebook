@@ -8,10 +8,11 @@ import {
   ErrorMsg,
 } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactSlice';
+// import { addContact } from 'redux/contactSlice';
 import { getContacts } from 'redux/selectors';
 import toast, { Toaster } from 'react-hot-toast';
 import { MdOutlineWarningAmber } from 'react-icons/md';
+import { addContact } from 'redux/operations';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -31,7 +32,7 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
   const onAdd = data => {
     const isExist = items.some(
-      ({ contactName }) => contactName.toLowerCase() === data.name.toLowerCase()
+      ({ name }) => name.toLowerCase() === data.name.toLowerCase()
     );
     isExist
       ? toast('Try different name', {
